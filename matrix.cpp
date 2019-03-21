@@ -14,6 +14,7 @@ int main(void)
 	random_walk(A, ROWS); /// 
 
 	printf("Matrix A:");
+	show(*A, ROWS, COLS);
 	show((int *)A, ROWS, COLS);
 	show(B, 1, 3);
 	system("pause");
@@ -24,7 +25,7 @@ void random_walk(int(*a)[COLS], int rows) /// this function assign values to 2d 
 {
 	for (int r = 0; r < rows; r++)
 		for (int c = 0; c < COLS; c++)
-			a[r][c] = rand() % 10;			//// assign any random number between 0 and 1000 using rand() function
+			*(*(a+r)+c) = rand() % 10;			//// assign any random number between 0 and 1000 using rand() function
 }
 //*a »ç¿ë
 void show(int *a, int rows, int cols) //// this function shows all the elements in a 2d Array
